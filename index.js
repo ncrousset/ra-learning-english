@@ -6,11 +6,10 @@ const { response } = require('express')
 const app = express()
 app.use(bodyParser.json())
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3030;
 
 
 app.get('', (request, response) => {
-    console.log("Welcome")
     response.send("Hello world!")
 })
 
@@ -27,7 +26,7 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({ request, response })
 
     function sayHello(agent) {
-        agent.add("Testing hello workd 123")
+        agent.add("Yes")
     }
 
     let intentMap = new Map();
