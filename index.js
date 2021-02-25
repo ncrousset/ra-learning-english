@@ -5,7 +5,8 @@ const { response } = require('express')
 
 const app = express()
 app.use(bodyParser.json())
-const port = process.env.POST || 3000
+
+const PORT = process.env.PORT || 3000;
 
 
 app.get('', (request, response) => {
@@ -18,8 +19,8 @@ app.post('/dialogflow-fulfillment', (request, response) => {
 })
 
 
-app.listen(port, () => {
-    console.log(`Listening on post  ${port}`)
+app.listen(PORT, () => {
+    console.log(`Listening on post  ${PORT}`)
 })
 
 const dialogflowFulfillment = (request, response) => {
