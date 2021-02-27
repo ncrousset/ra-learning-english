@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const { WebhookClient } = require('dialogflow-fulfillment')
 const { response } = require('express')
+// const {conversation} = require('conversation')
 
 const app = express()
 app.use(bodyParser.json())
@@ -29,7 +30,12 @@ const dialogflowFulfillment = (request, response) => {
         agent.add("Yes")
     }
 
+    function sayLessonOne(agent) {
+        agent.add("Test Lesson one")
+    }
+
     let intentMap = new Map();
     intentMap.set("Default Welcome Intent", sayHello)
+    intentMap.set("Lesson one", sayLessonOne)
     agent.handleRequest(intentMap)
 }
