@@ -18,10 +18,15 @@ app.post('/dialogflow-fulfillment', (request, response) => {
     dialogflowFulfillment(request, response)
 })
 
+app.get('test', (request, response) => {
+    const agent = new WebhookClient({ request, response })
+    agent.add("Hello world!")
+})
 
 app.listen(PORT, () => {
     console.log(`Listening on post  ${PORT}`)
 })
+
 
 const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({ request, response })
